@@ -1,3 +1,5 @@
+use std::thread;
+use std::time::Duration;
 // GLOBAL
 //  ENUM
 enum SettimanaGiorni {
@@ -5,6 +7,13 @@ enum SettimanaGiorni {
     Martedi,
     Mercoledi(i32),
     // ...
+}
+#[derive(Debug)]
+struct MiaPersona {
+    nome: String,
+    cognome: String,
+    genere: String,
+    anno : i32,
 }
 
 
@@ -197,9 +206,24 @@ fn main() {
         println!("{:?}", slice);
     }
 
-    // ora...
+    // istanza di struttura debug implemented
+    let miapersona = MiaPersona {
+    nome: String::from("Pier"),
+    cognome: String::from("Giordandiolo"),
+    genere: String::from("maschio"),
+    anno : 1962,
+    };
+    println!("miapersona : {miapersona:?}"); // <--- trate dubug
 
+    // un po di timing
+    for i in 1..=5 {
+        println!("Battito cardiaco del software: {}", i);
+        // Blocca il thread corrente per 1 secondo
+        thread::sleep(Duration::from_millis(300));
+    }
+    println!("Fine monitoraggio.");
 
+    // 
 
 
     println!("Fine programma -------------------------------------------------------------------------------<//");
