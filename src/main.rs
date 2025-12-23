@@ -80,6 +80,8 @@ fn main() {
     println!("array indice 3 ha valore: {}", mia_array_1[3]);// classico indice di array parte da 0 
     let mia_array_2 = [12 ; 5]; // array di 5 elementi tutti inizializzati a 12
     println!("array 2 indice 4 ha valore: {}", mia_array_2[4]);
+    let mia_array_string_1 = ["Gianni", "Marco", "Fabiola", "Pippo","Alberto"]; // array di 5 elementi tutti inizializzati a 12
+    println!("array 2 indice 4 ha valore: {}", mia_array_2[4]);
 
     // control flow , operatori condizionali if / else, match, enum
     let mio_risultato_1 = is_eveni32( 4);
@@ -116,7 +118,7 @@ fn main() {
     }
     //  ENUM - FUNZIONE DI PATTERN METCHING - nota: una volta passata giorno_[n] la stessa non risulta riutilizzabile
     get_giorni(giorno_3);
-    get_giorni(giorno_2);
+    get_giorni(giorno_2); 
     get_giorni_match(giorno_1);
     // ricrea variabili
     let giorno_1  = SettimanaGiorni::Lunedi(22); 
@@ -126,10 +128,33 @@ fn main() {
     get_giorni_match(giorno_1);
     get_giorni_match(giorno_2);
     get_giorni_match(giorno_3);
-    // ora...
 
-    // ora...
-    // ora...
+    // ora...LOOP 3 tipi    
+    // LOOP
+    let mut count_1 = 0;
+    loop{ //attenzione se non c e condizione d uscita ciclo infinito
+        print!("cnt:{}-",count_1);
+        count_1 += 1;
+        if count_1 == 10 {
+            println!("fine loop {}", count_1);
+            break; // serve brack
+        }
+    }
+    println!("count_1 arrivo {}", count_1);
+
+    // WHILE 
+    while count_1 > 0  {
+        print!("cntW:{}-",count_1);
+        count_1 -= 1;
+    }
+    println!("count_1 con while d arrivo {}", count_1);
+
+    // FOR 
+    for namefor1 in mia_array_string_1.iter() {
+        println!("Nome {}", namefor1)
+    }
+
+
 
     println!("Fine programma -------------------------------------------------------------------------------<//");
     }
