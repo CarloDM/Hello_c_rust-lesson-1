@@ -117,7 +117,14 @@ fn main() {
     get_giorni(giorno_3);
     get_giorni(giorno_2);
     get_giorni_match(giorno_1);
-
+    // ricrea variabili
+    let giorno_1  = SettimanaGiorni::Lunedi(22); 
+    let giorno_2  = SettimanaGiorni::Martedi; 
+    let giorno_3  = SettimanaGiorni::Mercoledi(24);
+    // rilancia funzioni
+    get_giorni_match(giorno_1);
+    get_giorni_match(giorno_2);
+    get_giorni_match(giorno_3);
     // ora...
 
     // ora...
