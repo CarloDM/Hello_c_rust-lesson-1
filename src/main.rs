@@ -169,9 +169,9 @@ fn main() {
         stack poche variabili
         hip strutture dinamiche grande memoria tipi complessi
         ownership x y
-
      */
     {
+
         let x = 4;
         println!("variabile x: {}, indirizzo:{:p}", x, &x); // valore puntatore sono una su stack l altra su hip
         let x = 3;
@@ -187,7 +187,7 @@ fn main() {
         println!("miastringa 1 {}, indirizzo:{:p}", miastr, &miastr);
         println!("miastringa 2 {}, indirizzo:{:p}", miastr2, &miastr2);
         // 
-        let miastr3 = String::from("SciScioLiNo");
+        let miastr3 = String::from("Ludovica");
         let mialen = get_string_length(&miastr3); // abbiamo prestato il valore anziche regalarlo con & in e out
         println!("lenght: {}, {}", mialen, miastr3);
         // fare slice di array numerico senza & non possibile
@@ -195,10 +195,10 @@ fn main() {
         // per printl! qui serve "{:?}"
         println!("{:?}", mia_array_1);
         println!("{:?}", slice);
-        
     }
 
-    
+    // ora...
+
 
 
 
@@ -206,6 +206,7 @@ fn main() {
     }
 
 // FUNZIONI ---
+
 fn get_string_length(s: &String) -> usize {
     s.len()
 }
