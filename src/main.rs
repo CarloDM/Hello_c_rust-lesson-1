@@ -157,12 +157,58 @@ fn main() {
         }
     }
 
+    // OWNERSHIP E MEMORIA
+    /*
+        memoria di rust 
+        la variabile ha un indirizzo di memoria
+        le variabili semplici vengon osalvate su una sezione di memoria
+        di nome STACK.
+        ma le variabili complesse funzionano diversamente
+        sono divisde in 2, una parte in STACK l altra in HIP
+        puntatore stack valore hip
+        stack poche variabili
+        hip strutture dinamiche grande memoria tipi complessi
+        ownership x y
+
+     */
+    {
+        let x = 4;
+        println!("variabile x: {}, indirizzo:{:p}", x, &x); // valore puntatore sono una su stack l altra su hip
+        let x = 3;
+        let y = x;
+        println!("x : {}, ind: {:p}", x, &x);
+        println!("x : {}, ind: {:p}", y, &y);
+        // siamo stati fortunati perche x e y sono variabili semplici, scalar types, primitivo . 
+        // rust appplica la copia non fa lo stesso con variabili complesse.
+        let miastr = String::from("Marcello");
+        // LA & CI VIENE IN AIUTO PER GESTIRE L OGGETTO COMPLESSO
+        let miastr2 = &miastr;
+        // riusciamo a rileggerlo senza che vada fuori scope miastr - &miastr
+        println!("miastringa 1 {}, indirizzo:{:p}", miastr, &miastr);
+        println!("miastringa 2 {}, indirizzo:{:p}", miastr2, &miastr2);
+        // 
+        let miastr3 = String::from("SciScioLiNo");
+        let mialen = get_string_length(&miastr3); // abbiamo prestato il valore anziche regalarlo con & in e out
+        println!("lenght: {}, {}", mialen, miastr3);
+        // fare slice di array numerico senza & non possibile
+        let slice = &mia_array_1[0..5];
+        // per printl! qui serve "{:?}"
+        println!("{:?}", mia_array_1);
+        println!("{:?}", slice);
+        
+    }
+
+    
+
 
 
     println!("Fine programma -------------------------------------------------------------------------------<//");
     }
 
 // FUNZIONI ---
+fn get_string_length(s: &String) -> usize {
+    s.len()
+}
 
 fn get_giorni(giorno:       SettimanaGiorni ){ // cosi enum dev esser dichiarato globalmente
 
