@@ -1,3 +1,12 @@
+    //  ENUM
+    enum SettimanaGiorni {
+        Lunedi(i32),
+        Martedi,
+        Mercoledi(i32),
+        // ...
+    }
+
+
 fn main() {
     // commenti println! è una macro riconoscibile con ! alla fine
     println!("Hello, world!!!, ciao mondo!!!----------------------------------------------------------------<//");
@@ -76,13 +85,70 @@ fn main() {
     println!("il numero 4 è pari? : {}", mio_risultato_1);
     let mio_risultato_2 = is_eveni32( mia_var_1);
     println!("la variabile mia_var_1: {} è pari? : {}", mia_var_1, mio_risultato_2);
+
+
+    //  ENUM interno bypassed
+    // enum SettimanaGiorni {
+    //     Lunedi(i32),
+    //     Martedi,
+    //     Mercoledi(i32),
+    //     // ...
+    // }
+
+    let giorno_1  = SettimanaGiorni::Lunedi(22); 
+    let giorno_2  = SettimanaGiorni::Martedi; 
+    let giorno_3  = SettimanaGiorni::Mercoledi(24); 
+
+    // ENUM - PATTER METCHING -// controllo di un valore specifico di un enum va messo let davanti, 
+    { 
+        if  let SettimanaGiorni::Lunedi(giorn)    = giorno_1 {
+            println!("PATTER METCHING:è lunedi oggi! giorno indicato: {}", giorn);
+        }else 
+    
+        if  let SettimanaGiorni::Martedi   = giorno_1 {
+            println!("PATTER METCHING:è martedi oggi oggi!");
+        }else 
+    
+        if  let SettimanaGiorni::Mercoledi(giorn) = giorno_1 {
+            println!("PATTER METCHING:è mercoledì oggi oggi! giorno indicato: {}", giorn);
+        }
+    }
+    //  ENUM - FUNZIONE DI PATTERN METCHING - nota: una volta passata giorno_[n] la stessa non risulta riutilizzabile
+    get_giorni(giorno_3);
+    get_giorni(giorno_2);
+    get_giorni_match(giorno_1);
+
     // ora...
-    // ora...
+
     // ora...
     // ora...
 
     println!("Fine programma -------------------------------------------------------------------------------<//");
     }
+
+// FUNZIONI ---
+
+fn get_giorni(giorno:       SettimanaGiorni ){ // cosi enum dev esser dichiarato globalmente
+        if  let SettimanaGiorni::Lunedi(giorn)    = giorno {
+            println!("PATTER METCHING:è lunedi oggi! giorno indicato: {}", giorn);
+        }else 
+    
+        if  let SettimanaGiorni::Martedi   = giorno {
+            println!("PATTER METCHING:è martedi oggi!");
+        }else 
+    
+        if  let SettimanaGiorni::Mercoledi(giorn) = giorno {
+            println!("PATTER METCHING:è mercoledì oggi! giorno indicato: {}", giorn);
+        }
+}
+
+fn get_giorni_match(giorno: SettimanaGiorni){ // sintassi differente comoda da vbisualizzare
+    match giorno {
+        SettimanaGiorni::Lunedi(giornoa)    => println!("lune{}", giornoa),
+        SettimanaGiorni::Martedi                 => println!("marte"),
+        SettimanaGiorni::Mercoledi(giornoa) => println!("merco{}", giornoa),
+    }
+}
 
 fn is_eveni32(num: i32) -> bool {
     if num % 2 == 0 {
