@@ -1,10 +1,11 @@
-    //  ENUM
-    enum SettimanaGiorni {
-        Lunedi(i32),
-        Martedi,
-        Mercoledi(i32),
-        // ...
-    }
+// GLOBAL
+//  ENUM
+enum SettimanaGiorni {
+    Lunedi(i32),
+    Martedi,
+    Mercoledi(i32),
+    // ...
+}
 
 
 fn main() {
@@ -136,20 +137,22 @@ fn main() {
 // FUNZIONI ---
 
 fn get_giorni(giorno:       SettimanaGiorni ){ // cosi enum dev esser dichiarato globalmente
-        if  let SettimanaGiorni::Lunedi(giorn)    = giorno {
-            println!("PATTER METCHING:è lunedi oggi! giorno indicato: {}", giorn);
-        }else 
-    
-        if  let SettimanaGiorni::Martedi   = giorno {
-            println!("PATTER METCHING:è martedi oggi!");
-        }else 
-    
-        if  let SettimanaGiorni::Mercoledi(giorn) = giorno {
-            println!("PATTER METCHING:è mercoledì oggi! giorno indicato: {}", giorn);
-        }
+
+    if  let SettimanaGiorni::Lunedi(giorn)    = giorno {
+        println!("PATTER METCHING:è lunedi oggi! giorno indicato: {}", giorn);
+    }else 
+
+    if  let SettimanaGiorni::Martedi   = giorno {
+        println!("PATTER METCHING:è martedi oggi!");
+    }else 
+
+    if  let SettimanaGiorni::Mercoledi(giorn) = giorno {
+        println!("PATTER METCHING:è mercoledì oggi! giorno indicato: {}", giorn);
+    }
 }
 
 fn get_giorni_match(giorno: SettimanaGiorni){ // sintassi differente comoda da vbisualizzare
+
     match giorno {
         SettimanaGiorni::Lunedi(giornoa)    => println!("lune{}", giornoa),
         SettimanaGiorni::Martedi                 => println!("marte"),
