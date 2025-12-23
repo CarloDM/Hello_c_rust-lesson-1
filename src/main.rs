@@ -15,7 +15,7 @@ fn main() {
     let mut mia_var_1 = 6;
     let mia_var_2 = 6;
     //  se non leggo in modo utile le variabili il compilatore mi dara un warning
-    mia_var_1 = mia_var_1 + 4;
+    mia_var_1 = mia_var_1 + 3;
     println!("mia variabile modificabile : {}", mia_var_1);
     println!("mia variabile non modificabile : {}", mia_var_2);
 
@@ -45,7 +45,7 @@ fn main() {
     println!("area rettangolo base {}m altezza {}m è: {:.1}m2", base, altezza, area);
 
     // data types
-    // scalar types: integer, floating-point, boolean, char
+    // scalar types: integer, floating-point, boolean, char, string
     // integer (signed, unsigned) [i8, i16, i32, i64, i128, isize | u8, u16, u32, u64, u128, usize]
     let mia_var_4: i128 = 999999000000000000000; // tipo i128 intero 128 bit
     println!("mia variabile 4 : {}", mia_var_4);
@@ -53,12 +53,12 @@ fn main() {
     println!("mia variabile 4_1 float : {}", mia_var_4_1);
     let mia_var_5 = true; // tipo booleano true/false
     println!("mia variabile 5 booleana : {}", mia_var_5);
-    let mia_var_6 = "sono una stringa"; // tipo string &str
+    let mia_var_6 = "sono una stringa"; // tipo string &str doppi apici
     println!("mia variabile 6 string : {}", mia_var_6);
-    let mia_var_6_1 = 'G'; // tipo char , lettera singola) singolo carattere
+    let mia_var_6_1 = 'G'; // tipo char , singolo carattere singoli apici
     println!("mia variabile 6 char , (lettera singola) : {}", mia_var_6_1);
 
-    //  compound types: tuples, arrays
+    // compound types: tuples, arrays
     // tuples
     let mia_tupla_1 : (&str, &str , i32) = ("Carlo","De Mauro", 36);
     println!("Sono una tupla dal nome: {} {}. e ho: {} anni.", mia_tupla_1.0, mia_tupla_1.1, mia_tupla_1.2);
@@ -70,8 +70,13 @@ fn main() {
     println!("array indice 3 ha valore: {}", mia_array_1[3]);// classico indice di array parte da 0 
     let mia_array_2 = [12 ; 5]; // array di 5 elementi tutti inizializzati a 12
     println!("array 2 indice 4 ha valore: {}", mia_array_2[4]);
-    // ora...
 
+    // control flow , operatori condizionali if / else, match, enum
+    let mio_risultato_1 = is_eveni32( 4);
+    println!("il numero 4 è pari? : {}", mio_risultato_1);
+    let mio_risultato_2 = is_eveni32( mia_var_1);
+    println!("la variabile mia_var_1: {} è pari? : {}", mia_var_1, mio_risultato_2);
+    // ora...
     // ora...
     // ora...
     // ora...
@@ -79,7 +84,13 @@ fn main() {
     println!("Fine programma -------------------------------------------------------------------------------<//");
     }
 
-
+fn is_eveni32(num: i32) -> bool {
+    if num % 2 == 0 {
+        return true
+    } else {
+        return false
+    }
+}
 
 fn area_rettangolo(base: f64, altezza: f64) -> f64 {
     //return implicito senza ; usare: {return base * altezza;}
