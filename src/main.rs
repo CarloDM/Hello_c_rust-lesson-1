@@ -9,7 +9,7 @@ enum SettimanaGiorni {
     // ...
 }
 #[derive(Debug)]
-struct MiaPersona {
+struct MiaPersona { 
     nome: String,
     cognome: String,
     genere: String,
@@ -200,7 +200,7 @@ fn main() {
         let mialen = get_string_length(&miastr3); // abbiamo prestato il valore anziche regalarlo con & in e out
         println!("lenght: {}, {}", mialen, miastr3);
         // fare slice di array numerico senza & non possibile
-        let slice = &mia_array_1[0..5];
+        let slice = &mia_array_1[0..5]; // borrowing prestiamo valore senza perdere la proprietà
         // per printl! qui serve "{:?}"
         println!("{:?}", mia_array_1);
         println!("{:?}", slice);
@@ -227,7 +227,7 @@ fn main() {
 
 
     println!("Fine programma -------------------------------------------------------------------------------<//");
-    }
+}
 
 // FUNZIONI ---
 
@@ -250,7 +250,7 @@ fn get_giorni(giorno:       SettimanaGiorni ){ // cosi enum dev esser dichiarato
     }
 }
 
-fn get_giorni_match(giorno: SettimanaGiorni){ // sintassi differente comoda da vbisualizzare
+fn get_giorni_match(giorno: SettimanaGiorni){ // sintassi differente comoda da visualizzare
 
     match giorno {
         SettimanaGiorni::Lunedi(giornoa)    => println!("lune{}", giornoa),
